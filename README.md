@@ -5,6 +5,7 @@ A web application that converts text descriptions into Mermaid diagrams using AI
 ## Overview
 
 Text2Mermaid is a Vue.js application that allows users to:
+
 - Enter a text description of a diagram
 - Select an AI provider (DeepSeek, Google Gemini, or Simulation mode)
 - Generate a Mermaid diagram based on the text description
@@ -19,25 +20,66 @@ Text2Mermaid is a Vue.js application that allows users to:
 
 ## Getting Started
 
-### Prerequisites
+### Option 1: Using Docker (Recommended)
+
+#### Prerequisites
+
+- Docker
+- Docker Compose
+
+#### Running with Docker Compose
+
+1. Clone the repository
+
+   ```
+   git clone https://github.com/yourusername/text2mermaid.git
+   cd text2mermaid
+   ```
+
+2. Create an `.env` file from the example
+
+   ```
+   cp .env.example .env
+   ```
+
+3. Edit the `.env` file and add your Gemini API key
+
+   ```
+   GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+
+4. Build and start the containers
+
+   ```
+   docker-compose up --build
+   ```
+
+5. Open your browser and navigate to `http://localhost:8080/`
+
+### Option 2: Local Development
+
+#### Prerequisites
 
 - Node.js (v14 or higher)
 - npm or yarn
 
-### Installation
+#### Installation
 
 1. Clone the repository
+
    ```
    git clone https://github.com/yourusername/text2mermaid.git
    cd text2mermaid
    ```
 
 2. Install dependencies for the frontend
+
    ```
    npm install
    ```
 
 3. Install dependencies for the backend
+
    ```
    cd backend
    npm install
@@ -48,15 +90,17 @@ Text2Mermaid is a Vue.js application that allows users to:
    - Copy `backend/.env.template` to `backend/.env`
    - Add your DeepSeek and Gemini API keys in the `.env` file
 
-### Running the Application
+#### Running the Application
 
 1. Start the backend server:
+
    ```
    cd backend
    npm run dev
    ```
 
 2. In a new terminal, start the frontend:
+
    ```
    npm run dev
    ```
@@ -71,6 +115,7 @@ Text2Mermaid is a Vue.js application that allows users to:
 4. View the rendered Mermaid diagram
 
 Example description:
+
 ```
 create a diagram of a user using ssh keys to log into a bastion host
 ```

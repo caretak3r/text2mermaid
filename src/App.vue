@@ -217,7 +217,10 @@ export default {
       console.log('Using provider:', this.selectedProvider)
 
       try {
-        let endpoint = 'http://localhost:3001/api/generate'
+        // Use environment variable for backend URL or default to localhost in development
+        const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'
+
+        let endpoint = `${apiBaseUrl}/api/generate`
         const requestData = {
           text: this.inputText,
           provider: this.selectedProvider,
@@ -225,7 +228,7 @@ export default {
 
         // Use simulation endpoint if simulation provider is selected
         if (this.selectedProvider === 'simulation') {
-          endpoint = 'http://localhost:3001/api/simulate'
+          endpoint = `${apiBaseUrl}/api/simulate`
           // For simulation endpoint, we only need to send the text
           delete requestData.provider
         }
